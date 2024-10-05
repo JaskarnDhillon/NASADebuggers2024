@@ -107,7 +107,7 @@ const AdminHeader = () => {
                     </nav>
                 </div>
             </div>
-            <div className='fixed right-0 bottom-0 p-2 text-xs text-gray-200'>
+            <div className='fixed right-0 bottom-0 p-2 text-xs text-gray-500'>
                 <p>{dateAndTime}</p>
             </div>
         </header>

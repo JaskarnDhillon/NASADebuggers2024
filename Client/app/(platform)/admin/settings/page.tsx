@@ -3,7 +3,7 @@ import { FaUserCog, FaLock, FaDatabase, FaBell, FaRegSave } from 'react-icons/fa
 
 const AdminSettingsPage = () => {
   return (
-    <section className='py-10 px-12 bg-gray-100 min-h-screen'>
+    <section className='py-10 px-12 bg-blue-50 min-h-screen'>
       {/* Section One */}
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-800">Admin Settings</h1>
