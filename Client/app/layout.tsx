@@ -3,7 +3,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Rocket Learning",
+  title: "SDG | Home",
   description: "Next NASA LMS",
 };
 

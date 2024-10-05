@@ -1,23 +1,22 @@
-const express = require('express');
-const router = express.Router();
-const Course = require('../models/course');
+const Courses = require('../models/course');
 
-// GET: /test => fetch all test
-router.get('/', async(req, res) => {
-    const media = [
-        {
-            id: 1,
-            name: 'Media 1',
-            description: 'Description 1'
-        },
-        {
-            id: 2,
-            name: 'Media 2',
-            description: 'Description 2'
+exports.get = async function (req, res) {
+    try {
+        const courses = await Courses.find();
+        return res.status(200).json(courses);
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+};
+
+exports.getCourseById = async function (req, res) {
+    try {
+        const course = await Courses.findById(req.params._id);
+        if (!course) {
+            return res.status(404).json({ message: "Course not found" });
         }
-    ];
-    
-    return res.json(media).status(200);
-})
-
-module.exports = router;
+        return res.status(200).json(course);
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+};

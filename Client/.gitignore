@@ -28,6 +28,7 @@ build/Release
 
 Dependency directories
 node_modules
+<<<<<<< HEAD
 jspm_packages
 
 Optional npm cache directory
@@ -36,3 +37,8 @@ Optional npm cache directory
 Optional REPL history
 .node_repl_history
 .next
+=======
+.next
+Client/.next
+.env
+>>>>>>> 28d844895b795df91b57babc34251617845687c0

@@ -1,9 +1,12 @@
 "use client"; // Ensure this is the very first line
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+  const [isLaunching, setIsLaunching] = useState<boolean>(false);
+  const router = useRouter(); // Initialize the router
 
   const handleCourseClick = (course: number) => {
     setSelectedCourse(course);
@@ -11,7 +14,11 @@ const Courses = () => {
 
   const handleBlastOffClick = () => {
     if (selectedCourse) {
-      console.log(`Redirecting to course: ${selectedCourse}`);
+      setIsLaunching(true);
+      setTimeout(() => {
+        setIsLaunching(false);
+        router.push(`/dashboard/courses/${selectedCourse}`); // Redirect after animation
+      }, 2000); // Adjusted duration to match the animation duration
     }
   };
 
@@ -60,14 +67,25 @@ const Courses = () => {
       {/* Conditionally render the Blast Off button */}
       {selectedCourse && (
         <button
-          className="mt-10 py-3 px-6 bg-blue-600 rounded-lg hover:bg-blue-500 z-10"
+          className={`mt-10 py-3 px-6 rounded-lg text-white z-10 transition-transform duration-300 ${isLaunching ? 'animate-blastoff' : ''} fire-button`}
           onClick={handleBlastOffClick}
         >
           Blast Off
         </button>
       )}
-      
-      {/* CSS for the stars */}
+
+      {/* Ship Animation */}
+      {isLaunching && (
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <img
+            src="/ship.png"
+            alt="Ship"
+            className="animate-launch ship-image" // Custom class for the ship
+          />
+        </div>
+      )}
+
+      {/* CSS for the stars and ship animation */}
       <style jsx global>{`
         .backgroundStar {
           position: absolute;
@@ -89,6 +107,50 @@ const Courses = () => {
           100% {
             opacity: 0.7;
           }
+        }
+
+        @keyframes launch {
+          0% {
+            transform: translateY(100vh); /* Start off-screen at the bottom */
+          }
+          100% {
+            transform: translateY(-150vh); /* Move the ship off the screen */
+          }
+        }
+
+        .animate-launch {
+          animation: launch 4s forwards; /* Match the duration to the timeout */
+        }
+
+        .ship-image {
+          width: 100px; /* Adjusted ship size */
+          height: auto; /* Maintain aspect ratio */
+        }
+
+        .fire-button {
+          background: linear-gradient(to bottom, rgba(255, 80, 0, 0.8), rgba(255, 200, 0, 0.8));
+          border: 2px solid rgba(255, 200, 0, 0.9);
+          box-shadow: 0 0 10px rgba(255, 200, 0, 0.9), 0 0 20px rgba(255, 80, 0, 0.9);
+        }
+
+        .fire-button:hover {
+          background: linear-gradient(to bottom, rgba(255, 100, 0, 1), rgba(255, 250, 0, 1));
+        }
+
+        @keyframes blastoff {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1); /* Slightly increase size */
+          }
+          100% {
+            transform: scale(1); /* Return to normal size */
+          }
+        }
+
+        .animate-blastoff {
+          animation: blastoff 0.3s ease-in-out forwards;
         }
       `}</style>
     </div>
