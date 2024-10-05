@@ -11,10 +11,12 @@ let quizSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    modules: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Question',
-        required: true
+    questions: [{
+        question: String,
+        options: [{
+            option: String,
+            correct: Boolean
+        }]
     }]
 });
 
