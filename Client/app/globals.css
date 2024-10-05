@@ -206,7 +206,3 @@ html {
     transform: scale3d(1, 1, 1);
   }
 }
-
-.grayscale-custom {
-  filter: grayscale(100%);
-}

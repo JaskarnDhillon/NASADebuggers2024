@@ -3,10 +3,15 @@ import { FaChevronDown, FaCog, FaQuestionCircle, FaUserAlt } from 'react-icons/f
 
 const AdminHeader = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isDropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
     const [dateAndTime, setDateAndTime] = useState('');
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
+    };
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!isDropdownOpen);
     };
 
     useEffect(() => {
@@ -21,7 +26,7 @@ const AdminHeader = () => {
                     <span className="text-2xl">☰</span>
                 </button>
                 <a href="/admin/dashboard" className="flex items-center gap-2">
-                    <img src="/logo.svg" alt="logo" className="h-14 grayscale-custom" />
+                    <img src="/logo.svg" alt="logo" className="h-14" />
                     <h1 className="text-2xl font-bold">Admin Panel</h1>
                 </a>
             </div>
@@ -36,13 +41,25 @@ const AdminHeader = () => {
                         <FaQuestionCircle className="text-2xl mr-2" />
                     </a>
                 </button>
-                <button className='flex gap-5 items-center pt-2 pr-4 pb-2 pl-4 rounded hover:bg-gray-50 border border-black'>
-                    <div className='flex gap-2'>
-                        <FaUserAlt className="text-2xl mr-2" />
-                        <span>John Doe</span>
-                    </div>
-                    <FaChevronDown className="text-xl ml-2" />
-                </button>
+                <div className='relative'>
+                    <button className='flex gap-5 items-center pt-2 pr-4 pb-2 pl-4 rounded hover:bg-gray-50 border border-black' onClick={toggleDropdown}>
+                        <div className='flex gap-2'>
+                            <FaUserAlt className="text-2xl mr-2" />
+                            <span>John Doe</span>
+                        </div>
+                        <FaChevronDown className="text-xl ml-2" />
+                    </button>
+                    {/* Dropdown Menu */}
+                    {isDropdownOpen && (
+                        <div className='absolute right-0 z-10 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200'>
+                            <ul>
+                                <li className="hover:bg-gray-100">
+                                    <a href="/logout" className="block px-4 py-2">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
             <div
                 className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 transition-opacity duration-300 ease-in-out ${isSidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
