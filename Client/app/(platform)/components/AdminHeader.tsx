@@ -20,10 +20,10 @@ const AdminHeader = () => {
                 <button onClick={toggleSidebar} className="mr-4 p-2 rounded hover:bg-gray-200">
                     <span className="text-2xl">☰</span>
                 </button>
-                <div className="flex items-center gap-2">
+                <a href="/admin/dashboard" className="flex items-center gap-2">
                     <img src="/logo.svg" alt="logo" className="h-14 grayscale-custom" />
                     <h1 className="text-2xl font-bold">Admin Panel</h1>
-                </div>
+                </a>
             </div>
             <div className="flex items-center">
                 <button className="flex items-center rounded hover:text-gray-950 mr-2">
@@ -84,13 +84,13 @@ const AdminHeader = () => {
                                 <a className="block w-full h-full p-4 bg-transparent" href="/admin/settings">Settings</a>
                             </li>
                             <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                                <a className="block w-full h-full p-4 bg-transparent" href="/faq">FAQ</a>
+                                <a className="block w-full h-full p-4 bg-transparent" target="_blank" href="/faq">FAQ</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <div className='fixed right-0 bottom-0 p-2'>
+            <div className='fixed right-0 bottom-0 p-2 text-xs'>
                 <p>{dateAndTime}</p>
             </div>
         </header>
