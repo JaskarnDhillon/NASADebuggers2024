@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
+import HeaderBox from '../../components/HeaderBox';
+
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
@@ -71,23 +73,32 @@ const Courses = () => {
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center flex-grow relative overflow-hidden">
-      <h1 className="text-4xl mt-10 text-center z-10">Courses</h1>
-      <div className="flex mt-5 justify-center space-x-4 z-10">
-        {courses.length > 0 ? (
-          courses.map((course) => (
-            <button
-              key={course._id} // Unique key for each button
-              className={`flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition duration-300 ${selectedCourse === course._id ? 'bg-blue-600' : 'bg-gray-800'} hover:bg-blue-500`}
-              onClick={() => handleCourseClick(course._id)}
-            >
-              <h2 className="text-2xl">{course.name}</h2>
-              <p className="text-gray-400">{course.description}</p>
-            </button>
-          ))
-        ) : (
-          <p>No courses available</p>
-        )}
-      </div>
+    <HeaderBox title="Dashboard"/>
+    <div className="grid grid-cols-3 mt-5 space-x-4 z-10 justify-center">
+      {courses.length > 0 ? (
+        courses.map((course) => (
+          <button
+            key={course._id} // Unique key for each button
+            className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition duration-300 ${
+              selectedCourse === course._id ? 'bg-blue-600' : 'bg-gray-800'
+            } hover:bg-blue-500 ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`} // Apply styles if disabled
+            onClick={() => handleCourseClick(course._id)}
+            disabled={!course.enabled} // Disable button if course.enabled is false
+          >
+            <h2 className="text-2xl">
+              {
+                course.name.split('-') // Split the string at each "-"
+                .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+                .join(' ') // Join the words back together with a space
+              }
+            </h2>
+            <p className="text-gray-400">{course.description}</p>
+          </button>
+        ))
+      ) : (
+        <p>No courses available</p>
+      )}
+    </div>
 
       {/* Conditionally render the Blast Off button */}
       {selectedCourse && (
