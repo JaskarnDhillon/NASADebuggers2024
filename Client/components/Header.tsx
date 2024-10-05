@@ -53,6 +53,9 @@ const Header = () => {
             <Link href="/dashboard" className="cursor-pointer">
               My Progress
             </Link>
+            <Link href="/contact" className="cursor-pointer">
+              Contact Us
+            </Link>
           </div>
         </div>
 
