@@ -1,4 +1,4 @@
-// File: C:\Users\Kalem\Documents\SDG Inovations\NASADebuggers2024\Client\app\layout.tsx
+// File: C:\Users\jackd\OneDrive\Documents\Nasa\NASADebuggers2024\Client\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -20,13 +20,13 @@ const SignIn = () => {
           </h2>
           <form className="w-full">
             <div className="flex flex-col w-full my-5">
-              <label htmlFor="username" className="text-gray-300 mb-2">
-                Username
+              <label htmlFor="email" className="text-gray-300 mb-2">
+                Email
               </label>
               <input
-                type="username"
-                id="username"
-                placeholder="Enter Username"
+                type="email"
+                id="email"
+                placeholder="Enter Email"
                 className="bg-transparent border-2 border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:shadow-lg"
               />
             </div>
