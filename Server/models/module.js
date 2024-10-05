@@ -15,11 +15,6 @@ let moduleSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    quiz: {
-        type: Schema.Types.ObjectId,
-        ref: 'Quiz',
-        required: true
-    }
 });
 
 module.exports = mongoose.model('Module', moduleSchema);

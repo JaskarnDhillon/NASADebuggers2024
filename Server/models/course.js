@@ -22,6 +22,11 @@ let courseSchema = new mongoose.Schema({
     enabled: {
         type: Boolean,
         required: true
+    },
+    quiz: {
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz',
+        required: true
     }
 });
 
