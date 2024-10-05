@@ -1,14 +1,14 @@
 {
   "pages": {
-    "/(auth)/sign-in/page": [
+    "/(root)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-in/page.js"
+      "static/chunks/app/(root)/page.js"
     ],
-    "/(auth)/layout": [
+    "/(root)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/layout.js"
+      "static/chunks/app/(root)/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -21,40 +21,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/about/page.js"
     ],
-    "/(root)/layout": [
+    "/(auth)/sign-in/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(root)/layout.js"
+      "static/chunks/app/(auth)/sign-in/page.js"
     ],
-    "/(platform)/dashboard/settings/page": [
+    "/(auth)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/dashboard/settings/page.js"
+      "static/chunks/app/(auth)/layout.js"
     ],
-    "/(platform)/layout": [
+    "/(root)/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/layout.js"
-    ],
-    "/(root)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/page.js"
+      "static/chunks/app/(root)/contact/page.js"
     ],
     "/(platform)/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(platform)/dashboard/page.js"
     ],
-    "/(auth)/sign-up/page": [
+    "/(platform)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-up/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/(platform)/layout.js"
     ]
   }
 }
