@@ -16,20 +16,30 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(auth)/sign-in/page": [
+    "/(platform)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-in/page.js"
+      "static/chunks/app/(platform)/layout.js"
     ],
-    "/(auth)/layout": [
+    "/(platform)/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/layout.js"
+      "static/chunks/app/(platform)/dashboard/page.js"
     ],
-    "/(auth)/sign-up/page": [
+    "/(platform)/dashboard/courses/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-up/page.js"
+      "static/chunks/app/(platform)/dashboard/courses/page.js"
+    ],
+    "/(platform)/dashboard/grades/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(platform)/dashboard/grades/page.js"
+    ],
+    "/(platform)/dashboard/quizzes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(platform)/dashboard/quizzes/page.js"
     ]
   }
 }
