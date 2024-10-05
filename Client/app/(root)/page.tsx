@@ -1,17 +1,47 @@
-import Encryption from "@/components/Encryption";
-import Hero from "@/components/Hero";
-import Skills from "@/components/Skills";
+"use client";
+import { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  useEffect(() => {
+    const text = document.getElementById("text");
+    const bird1 = document.getElementById("bird1");
+    const bird2 = document.getElementById("bird2");
+    const btn = document.getElementById("btn");
+    const rocks = document.getElementById("rocks");
+    const forest = document.getElementById("forest");
+    const water = document.getElementById("water");
+    const header = document.getElementById("header");
+    const joinNow = document.getElementById("joinNow");
+
+    const handleScroll = () => {
+      const value = window.scrollY;
+
+      if (text) text.style.top = 100 + value * -0.5 + "%";
+      if (bird1) {
+        bird1.style.top = value * -1.0 + "px"; 
+        bird1.style.left = value * 2 + "px"; 
+      }
+      if (bird2) {
+        bird2.style.top = value * -1.0 + "px"; 
+        bird2.style.left = value * -5 + "px"; 
+      }
+      if (btn) btn.style.marginTop = value * 1.5 + "px";
+      if (rocks) rocks.style.top = value * -0.12 + "px";
+      if (forest) forest.style.top = value * 0.25 + "px";
+      if (header) header.style.top = value * 0.5 + "px";
+      if (joinNow) joinNow.style.marginTop = value * 1.5 + "px";
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-<<<<<<< HEAD
-    <main className="h-full w-full">
-      <div className="flex flex-col gap-20">
-        <Hero />
-        <Skills />
-        <Encryption />
-=======
     <main className="overflow-x-hidden min-h-screen">
       <div className="w-full relative min-h-screen bg-blue-50 flex justify-center flex-col items-center text-center para_before">
         <h2 
@@ -77,7 +107,6 @@ export default function Home() {
           className="parallax_img absolute"
         />
       </div>
-
       <div className="bg-[#075470] relative p-28">
         <h2>Lorem, ipsum.</h2>
         <p>
@@ -88,7 +117,6 @@ export default function Home() {
           Ipsum voluptatibus id facilis, asperiores expedita dolor vero fugit
           maxime? Enim earum a numquam voluptatibus?
         </p>
->>>>>>> 5df6a1e (header done)
       </div>
     </main>
   );
