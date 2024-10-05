@@ -6,10 +6,12 @@ export default function RootLayout({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
+    // bg-[#030014]
     return (
-      <main className="bg-[#030014] overflow-y-scroll overflow-x-hidden">
-                <StarsCanvas />
+      <main className=" ">
+                {/* <StarsCanvas /> */}
                 <Header />
+                
           {children}
       </main>
     );
