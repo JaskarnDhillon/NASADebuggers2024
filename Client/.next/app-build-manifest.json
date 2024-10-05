@@ -15,41 +15,6 @@
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/(platform)/admin/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/dashboard/page.js"
-    ],
-    "/(platform)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/layout.js"
-    ],
-    "/(platform)/admin/quizzes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/quizzes/page.js"
-    ],
-    "/(platform)/admin/users/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/users/page.js"
-    ],
-    "/(platform)/admin/courses/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/courses/page.js"
-    ],
-    "/(platform)/admin/settings/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/settings/page.js"
-    ],
-    "/(platform)/admin/modules/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(platform)/admin/modules/page.js"
     ]
   }
 }
