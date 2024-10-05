@@ -624,6 +624,12 @@ video {
 .top-\[50\%\] {
   top: 50%;
 }
+.bottom-0 {
+  bottom: 0px;
+}
+.right-0 {
+  right: 0px;
+}
 .z-10 {
   z-index: 10;
 }
@@ -770,6 +776,18 @@ video {
 }
 .hidden {
   display: none;
+}
+.size-2 {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.size-1 {
+  width: 0.25rem;
+  height: 0.25rem;
 }
 .h-10 {
   height: 2.5rem;

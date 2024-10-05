@@ -1,13 +1,18 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaCog, FaQuestionCircle, FaUserAlt } from 'react-icons/fa';
 
 const AdminHeader = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [dateAndTime, setDateAndTime] = useState('');
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
     };
+
+    useEffect(() => {
+        const currentDateTime = new Date().toLocaleString();
+        setDateAndTime(currentDateTime);
+    }, []);
 
     return (
         <header className="flex items-center justify-between p-4 bg-white text-black w-full border-b border-black">
@@ -84,6 +89,9 @@ const AdminHeader = () => {
                         </ul>
                     </nav>
                 </div>
+            </div>
+            <div className='fixed right-0 bottom-0 p-2'>
+                <p>{dateAndTime}</p>
             </div>
         </header>
     );
