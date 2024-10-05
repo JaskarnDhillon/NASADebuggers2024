@@ -1,4 +1,4 @@
 {
-  "/(root)/page": "app/(root)/page.js",
-  "/(platform)/dashboard/page": "app/(platform)/dashboard/page.js"
+  "/(platform)/dashboard/page": "app/(platform)/dashboard/page.js",
+  "/(root)/page": "app/(root)/page.js"
 }
