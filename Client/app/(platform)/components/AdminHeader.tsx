@@ -7,7 +7,10 @@ const AdminHeader = () => {
                 <button className="mr-4 p-2 rounded hover:text-gray-950">
                     <span className="text-2xl">☰</span>
                 </button>
-                <h1 className="text-xl font-bold">Admin Dashboard</h1>
+                <div className='flex items-center gap-4'>
+                    <img src="/logo.svg" alt="logo" className="h-10" />
+                    <h1 className="text-2xl">Admin Panel</h1>
+                </div>
             </div>
             <div className="flex items-center">
                 <button className="flex items-center rounded hover:text-gray-950 mr-2">
