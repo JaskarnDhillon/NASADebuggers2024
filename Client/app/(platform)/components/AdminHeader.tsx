@@ -36,9 +36,11 @@ const AdminHeader = () => {
                         <FaQuestionCircle className="text-2xl mr-2" />
                     </a>
                 </button>
-                <button className='flex items-center pt-2 pr-4 pb-2 pl-4 rounded hover:bg-gray-50 border border-black'>
-                    <FaUserAlt className="text-2xl mr-2" />
-                    <span>John Doe</span>
+                <button className='flex gap-5 items-center pt-2 pr-4 pb-2 pl-4 rounded hover:bg-gray-50 border border-black'>
+                    <div className='flex gap-2'>
+                        <FaUserAlt className="text-2xl mr-2" />
+                        <span>John Doe</span>
+                    </div>
                     <FaChevronDown className="text-xl ml-2" />
                 </button>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUsers, FaBook, FaCheckCircle, FaLayerGroup, FaExternalLinkAlt, FaGithub, FaCog, FaQuestionCircle } from 'react-icons/fa';
+import { FaUsers, FaBook, FaCheckCircle, FaLayerGroup } from 'react-icons/fa';
 
 const AdminDashboard = () => {
   return (
@@ -66,22 +66,19 @@ const AdminDashboard = () => {
 
       {/* Section Three */}
 
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">Navigation</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://sdg-innovation-lab.com" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
-            <FaExternalLinkAlt className="mr-2" /> Live Site
-          </a>
-          <a href="https://github.com/JaskarnDhillon/NASADebuggers2024" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-gray-700 text-white rounded-lg shadow hover:bg-gray-800 transition">
-            <FaGithub className="mr-2" /> GitHub Repository
-          </a>
-          <a href="/admin/settings" className="flex items-center p-4 bg-gray-200 text-gray-700 rounded-lg shadow hover:bg-gray-300 transition">
-            <FaCog className="mr-2" /> Settings
-          </a>
-          <a href="/faq" className="flex items-center p-4 bg-gray-200 text-gray-700 rounded-lg shadow hover:bg-gray-300 transition">
-            <FaQuestionCircle className="mr-2" /> FAQ
-          </a>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        <a href="#" className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition duration-300">
+          <h3 className="text-xl font-bold text-gray-700">Live Site</h3>
+        </a>
+        <a href="#" className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition duration-300">
+          <h3 className="text-xl font-bold text-gray-700">GitHub Repo</h3>
+        </a>
+        <a href="#" className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition duration-300">
+          <h3 className="text-xl font-bold text-gray-700">Settings</h3>
+        </a>
+        <a href="#" className="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-gray-50 transition duration-300">
+          <h3 className="text-xl font-bold text-gray-700">FAQ</h3>
+        </a>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 {
-  "/(root)/page": "app/(root)/page.js",
   "/(platform)/admin/dashboard/page": "app/(platform)/admin/dashboard/page.js",
-  "/(platform)/admin/users/page": "app/(platform)/admin/users/page.js"
+  "/(platform)/admin/quizzes/page": "app/(platform)/admin/quizzes/page.js",
+  "/(platform)/admin/users/page": "app/(platform)/admin/users/page.js",
+  "/(platform)/admin/settings/page": "app/(platform)/admin/settings/page.js",
+  "/(root)/page": "app/(root)/page.js"
 }
