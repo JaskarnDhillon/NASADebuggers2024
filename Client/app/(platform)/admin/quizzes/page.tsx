@@ -6,7 +6,7 @@ const AdminQuizzesPage = () => {
     <section className='py-10 px-12 bg-gray-100 min-h-screen'>
       {/* Section One */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-800">Admin Quizzes</h1>
+        <h1 className="text-4xl font-bold text-gray-800">Quizzes</h1>
       </div>
       
       {/* Statistics */}
