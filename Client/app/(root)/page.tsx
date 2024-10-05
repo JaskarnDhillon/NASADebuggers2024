@@ -46,7 +46,7 @@ export default function Home() {
       <div className="w-full relative min-h-screen bg-blue-50 flex justify-center flex-col items-center text-center para_before">
         <h2 
           id="text" 
-          className=" text-[#094b65] mb-[300px] text-[120px] bold animate_inX"
+          className=" text-[#094b65] mb-[400px] text-[120px] bold animate_inX"
           style={{ "--index": 1 } as React.CSSProperties}
           >
           <span className="text-[20px]">learn with</span>

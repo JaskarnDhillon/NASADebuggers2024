@@ -63,33 +63,37 @@ body {
 .button-primary {
   background: linear-gradient(
       180deg,
-      rgba(60, 8, 126, 0) 0%,
-      rgba(60, 8, 126, 0.32) 100%
+      rgba(9, 75, 101, 0) 0%,  /* Updated color: #094b65 */
+      rgba(9, 75, 101, 0.32) 100%  /* Updated color: #094b65 */
     ),
-    rgba(113, 47, 255, 0.12);
-    transition: all ease 0.5s;
+    rgba(9, 75, 101, 0.12);  /* Updated color: #094b65 */
+  transition: all ease 0.5s;
   box-shadow: inset 0 0 12px #bf97ff3d;
+}
+.button{
+  color:#f6fcff;
 }
 .button-primary:hover {
   background: linear-gradient(
       180deg,
-      rgba(60, 8, 126, 0) 0%,
-      rgba(60, 8, 126, 0.42) 100%
+      rgba(9, 75, 101, 0) 0%,  /* Updated color: #094b65 */
+      rgba(9, 75, 101, 0.42) 100%  /* Updated color: #094b65 */
     ),
-    rgba(113, 47, 255, 0.24);
+    rgba(9, 75, 101, 0.24);  /* Updated color: #094b65 */
   box-shadow: inset 0 0 12px #bf97ff70;
 }
 
-.button-secondary{
-  transition:all ease 0.5s;
+.button-secondary {
+  transition: all ease 0.5s;
 }
+
 .button-secondary:hover {
   background: linear-gradient(
       180deg,
-      rgba(60, 8, 126, 0) 0%,
-      rgba(60, 8, 126, 0.42) 100%
+      rgba(9, 75, 101, 0) 0%,  /* Updated color: #094b65 */
+      rgba(9, 75, 101, 0.42) 100%  /* Updated color: #094b65 */
     ),
-    rgba(113, 47, 255, 0.24);
+    rgba(9, 75, 101, 0.24);  /* Updated color: #094b65 */
   box-shadow: inset 0 0 12px #bf97ff70;
 }
 
