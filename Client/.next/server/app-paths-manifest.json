@@ -1,7 +1,6 @@
 {
-  "/(platform)/admin/quizzes/page": "app/(platform)/admin/quizzes/page.js",
-  "/(platform)/admin/courses/page": "app/(platform)/admin/courses/page.js",
-  "/(platform)/admin/settings/page": "app/(platform)/admin/settings/page.js",
-  "/(platform)/admin/modules/page": "app/(platform)/admin/modules/page.js",
-  "/(platform)/admin/dashboard/page": "app/(platform)/admin/dashboard/page.js"
+  "/(platform)/dashboard/courses/page": "app/(platform)/dashboard/courses/page.js",
+  "/(platform)/dashboard/grades/page": "app/(platform)/dashboard/grades/page.js",
+  "/(platform)/dashboard/quizzes/page": "app/(platform)/dashboard/quizzes/page.js",
+  "/(platform)/dashboard/page": "app/(platform)/dashboard/page.js"
 }

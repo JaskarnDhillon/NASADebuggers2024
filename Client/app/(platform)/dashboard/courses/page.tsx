@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation'; // Import useRouter from next/navig
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
   const [isLaunching, setIsLaunching] = useState<boolean>(false);
+  const [courses, setCourses] = useState<any[]>([]); // State for storing courses
+  const [loading, setLoading] = useState<boolean>(true); // State for loading
   const router = useRouter(); // Initialize the router
 
-  const handleCourseClick = (course: number) => {
-    setSelectedCourse(course);
+  const handleCourseClick = (courseId: number) => {
+    setSelectedCourse(courseId);
   };
 
   const handleBlastOffClick = () => {
@@ -21,6 +23,25 @@ const Courses = () => {
       }, 2000); // Adjusted duration to match the animation duration
     }
   };
+
+  // Fetch courses from backend API
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/v1/courses'); // Replace with your backend API URL
+        const data = await response.json();
+        console.log('Courses:', data);
+        setCourses(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+    createBackgroundStars(); // Call function to create background stars
+  }, []);
 
   // Function to create and place stars randomly for background
   const createBackgroundStars = () => {
@@ -44,24 +65,28 @@ const Courses = () => {
     }
   };
 
-  useEffect(() => {
-    createBackgroundStars();
-  }, []);
+  if (loading) {
+    return <div className="text-white">Loading courses...</div>; // Display a loading message while fetching
+  }
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center flex-grow relative overflow-hidden">
       <h1 className="text-4xl mt-10 text-center z-10">Courses</h1>
       <div className="flex mt-5 justify-center space-x-4 z-10">
-        {[1, 2, 3].map((course) => (
-          <button
-            key={`course-${course}`} // Unique key for each button
-            className={`flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition duration-300 ${selectedCourse === course ? 'bg-blue-600' : 'bg-gray-800'} hover:bg-blue-500`}
-            onClick={() => handleCourseClick(course)}
-          >
-            <h2 className="text-2xl">Course {course}</h2>
-            <p className="text-gray-400">Description for Course {course}.</p>
-          </button>
-        ))}
+        {courses.length > 0 ? (
+          courses.map((course) => (
+            <button
+              key={course._id} // Unique key for each button
+              className={`flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition duration-300 ${selectedCourse === course._id ? 'bg-blue-600' : 'bg-gray-800'} hover:bg-blue-500`}
+              onClick={() => handleCourseClick(course._id)}
+            >
+              <h2 className="text-2xl">{course.name}</h2>
+              <p className="text-gray-400">{course.description}</p>
+            </button>
+          ))
+        ) : (
+          <p>No courses available</p>
+        )}
       </div>
 
       {/* Conditionally render the Blast Off button */}

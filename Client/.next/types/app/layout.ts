@@ -1,4 +1,4 @@
-// File: /Users/franco/Documents/NASA Space Apps Challenge 2024/NASADebuggers2024/NASADebuggers2024/Client/app/layout.tsx
+// File: /Users/jaskarndhillon/Desktop/NASADebuggers2024/Client/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
