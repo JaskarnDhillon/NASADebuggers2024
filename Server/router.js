@@ -1,5 +1,6 @@
 const Authentication = require('./controllers/authentication');
 const Courses = require('./controllers/courses');
+const Modules = require('./controllers/modules');
 const passport = require('passport');
 require('./services/passport');
 
@@ -20,6 +21,10 @@ module.exports = function (app) {
   app.get('/api/v1/courses', Courses.get);
 
   app.get('/api/v1/courses/:_id', Courses.getCourseById);
+
+  app.get('/api/v1/modules', Modules.get);
+
+  app.get('/api/v1/modules/:_id', Modules.getModulesById);
 
   // Validate user
   app.get('/api/validate', requireAuth, function(req, res) {

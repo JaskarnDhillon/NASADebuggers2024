@@ -18,7 +18,11 @@ let courseSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Module',
         required: true
-    }]
+    }],
+    enabled: {
+        type: Boolean,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Course', courseSchema);
