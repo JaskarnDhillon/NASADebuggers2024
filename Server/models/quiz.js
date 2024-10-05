@@ -2,7 +2,7 @@ const Question = require('../models/question');
 const mongoose = require('mongoose');
 const { Schema } = mongoose
 
-let courseSchema = new mongoose.Schema({
+let quizSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,11 +11,11 @@ let courseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    modules: {
+    modules: [{
         type: Schema.Types.ObjectId,
         ref: 'Question',
         required: true
-    }
+    }]
 });
 
-module.exports = mongoose.model('Quiz', courseSchema);
+module.exports = mongoose.model('Quiz', quizSchema);
