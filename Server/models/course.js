@@ -14,11 +14,11 @@ let courseSchema = new mongoose.Schema({
     coverImage: {
         type: String
     },
-    modules: {
+    modules: [{
         type: Schema.Types.ObjectId,
         ref: 'Module',
         required: true
-    }
+    }]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

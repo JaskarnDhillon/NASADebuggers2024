@@ -7,7 +7,7 @@ let moduleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
+    pageLink: {
         type: String,
         required: true
     },
