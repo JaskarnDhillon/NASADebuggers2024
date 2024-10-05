@@ -1,6 +1,0 @@
-{
-  "/(platform)/dashboard/courses/page": "app/(platform)/dashboard/courses/page.js",
-  "/(platform)/dashboard/grades/page": "app/(platform)/dashboard/grades/page.js",
-  "/(platform)/dashboard/quizzes/page": "app/(platform)/dashboard/quizzes/page.js",
-  "/(platform)/dashboard/page": "app/(platform)/dashboard/page.js"
-}
