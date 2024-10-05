@@ -207,5 +207,6 @@ html {
   }
 }
 
-
-
+.grayscale-custom {
+  filter: grayscale(100%);
+}
