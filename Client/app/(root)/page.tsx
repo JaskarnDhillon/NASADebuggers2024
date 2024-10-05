@@ -107,7 +107,6 @@ export default function Home() {
           className="parallax_img absolute"
         />
       </div>
-
       <div className="bg-[#075470] relative p-28">
         <h2>Lorem, ipsum.</h2>
         <p>

@@ -2,6 +2,7 @@ const Authentication = require('./controllers/authentication');
 const Courses = require('./controllers/courses');
 const Modules = require('./controllers/modules');
 const Quizzes = require('./controllers/quizzes');
+
 const passport = require('passport');
 require('./services/passport');
 

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   const cors = require('cors');
   app.use(cors({
-      origin: process.env.CLIENT_URL,
+      origin: 'http://localhost:3000',
       methods: 'GET,POST,PUT,DELETE,HEAD,OPTIONS',
   }));
 }
