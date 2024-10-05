@@ -45,7 +45,7 @@ const AdminHeader = () => {
             <div
                 className={`fixed top-0 left-0 w-80 h-full bg-white z-50 shadow-lg rounded-r-lg transition-transform duration-300 ease-in-out transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
             >
-                <div className="flex items-center justify-between p-4 border-b border-gray-300">
+                <div className="flex items-center justify-between p-4 border-b border-gray-300 h-100">
                     <div className="flex items-center gap-2">
                         <a href="/admin/dashboard" className='flex items-center gap-2'>
                             <img src="/logo.svg" alt="logo" className="h-14 grayscale-custom" />
@@ -56,22 +56,34 @@ const AdminHeader = () => {
                         <span className="text-2xl">✖</span>
                     </button>
                 </div>
-                <nav>
-                    <ul>
-                        <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                            <a className="block w-full h-full p-4 bg-transparent" href="/admin/dashboard">Dashboard</a>
-                        </li>
-                        <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                            <a className="block w-full h-full p-4 bg-transparent" href="/admin/quizzes">Quizzes</a>
-                        </li>
-                        <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                            <a className="block w-full h-full p-4 bg-transparent" href="/admin/users">Users</a>
-                        </li>
-                        <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                            <a className="block w-full h-full p-4 bg-transparent" href="/admin/courses">Courses</a>
-                        </li>
-                    </ul>
-                </nav>
+                <div className="flex-col justify-space-betwee h-100">
+                    <nav>
+                        <ul>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/dashboard">Dashboard</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/quizzes">Quizzes</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/users">Users</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/courses">Courses</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/settings">Settings</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/faq">FAQ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
     );
