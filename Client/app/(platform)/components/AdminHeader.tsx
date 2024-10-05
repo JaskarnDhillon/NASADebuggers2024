@@ -70,13 +70,16 @@ const AdminHeader = () => {
                                 <a className="block w-full h-full p-4 bg-transparent" href="/admin/dashboard">Dashboard</a>
                             </li>
                             <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/courses">Courses</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
+                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/modules">Modules</a>
+                            </li>
+                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
                                 <a className="block w-full h-full p-4 bg-transparent" href="/admin/quizzes">Quizzes</a>
                             </li>
                             <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
                                 <a className="block w-full h-full p-4 bg-transparent" href="/admin/users">Users</a>
-                            </li>
-                            <li className="border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                                <a className="block w-full h-full p-4 bg-transparent" href="/admin/courses">Courses</a>
                             </li>
                         </ul>
                     </nav>

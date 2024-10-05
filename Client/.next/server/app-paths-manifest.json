@@ -1,7 +1,8 @@
 {
   "/(platform)/admin/users/page": "app/(platform)/admin/users/page.js",
-  "/(platform)/admin/courses/page": "app/(platform)/admin/courses/page.js",
-  "/(platform)/admin/quizzes/page": "app/(platform)/admin/quizzes/page.js",
+  "/(platform)/admin/dashboard/page": "app/(platform)/admin/dashboard/page.js",
   "/(platform)/admin/settings/page": "app/(platform)/admin/settings/page.js",
-  "/(platform)/admin/dashboard/page": "app/(platform)/admin/dashboard/page.js"
+  "/(platform)/admin/quizzes/page": "app/(platform)/admin/quizzes/page.js",
+  "/(platform)/admin/courses/page": "app/(platform)/admin/courses/page.js",
+  "/(platform)/admin/modules/page": "app/(platform)/admin/modules/page.js"
 }
