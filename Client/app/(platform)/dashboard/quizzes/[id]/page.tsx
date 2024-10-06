@@ -148,7 +148,7 @@ const QuizPage = () => {
           left: 0;
           width: 100%;
           height: 100px;
-          background: url('/path/to/wave.svg') no-repeat center bottom; /* Add your wave SVG */
+          background: url('/path/to/wave.svg') no-repeat center bottom;
           background-size: cover;
           animation: wave 10s infinite linear;
         }
