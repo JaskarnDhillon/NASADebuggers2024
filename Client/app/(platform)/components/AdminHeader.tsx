@@ -38,7 +38,7 @@ const AdminHeader = () => {
                     <FaQuestionCircle className="text-2xl" />
                 </a>
                 <div className='relative'>
-                    <button className='flex gap-6 items-center px-4 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white transition duration-200' onClick={toggleDropdown}>
+                    <button className='flex gap-6 items-center px-4 py-2 rounded bg-blue-500 border border-blue-500 hover:border hover:border-white text-white transition duration-200' onClick={toggleDropdown}>
                         <div className='flex gap-2'>
                             <FaUserAlt className="text-2xl" />
                             <span>John Doe</span>
@@ -46,7 +46,7 @@ const AdminHeader = () => {
                         <FaChevronDown className="text-xl" />
                     </button>
                     {isDropdownOpen && (
-                        <div className='absolute right-0 z-10 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200'>
+                        <div className='absolute right-0 z-10 mt-2 w-44 bg-white shadow-lg rounded-md border border-gray-200'>
                             <ul>
                                 <li className="hover:bg-gray-100">
                                     <a href="/logout" className="block px-4 py-2 text-black">Logout</a>
