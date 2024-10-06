@@ -34,10 +34,12 @@ const ModuleDetailPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const apiURL = process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : process.env.DEV_SERVER_URL;
+
   useEffect(() => {
     const fetchModule = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/modules/${id}`);
+        const response = await fetch(apiURL + `/api/v1/modules/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch module');
         }
