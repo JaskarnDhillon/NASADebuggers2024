@@ -1,4 +1,5 @@
 const Quiz = require('../models/quiz');
+const Course = require('../models/course');
 const mongoose = require('mongoose');
 const { Schema } = mongoose
 
@@ -13,6 +14,11 @@ let moduleSchema = new mongoose.Schema({
     },
     orderNumber: {
         type: Number,
+        required: true
+    },
+    course: {
+        type: Schema.Types.ObjectId,
+        ref: 'Course',
         required: true
     },
     quiz: {

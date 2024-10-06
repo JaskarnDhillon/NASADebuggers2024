@@ -9,7 +9,17 @@ const userSchema = new Schema({
     unique: true,
     lowercase: true
   },
-  password: String
+  password: String,
+  progress: {
+    courses: [{
+      id: String,
+      modules: [{
+        id: String,
+        completed: Boolean,
+        isAvaialble: Boolean
+      }]
+    }]
+  }
 });
 
 // Encrypt password before saving a model
