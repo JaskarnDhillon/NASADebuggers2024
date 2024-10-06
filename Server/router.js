@@ -32,6 +32,8 @@ module.exports = function (app) {
 
   app.get('/api/v1/quizzes/:_id', Quizzes.getQuizById);
 
+  app.post('/api/v1/quizzes/:_id/submit', Quizzes.submitQuiz);
+
   // Validate user
   app.get('/api/validate', requireAuth, function(req, res) {
     res.send({

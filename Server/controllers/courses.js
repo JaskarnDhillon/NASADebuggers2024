@@ -2,7 +2,7 @@ const Courses = require('../models/course');
 
 exports.get = async function (req, res) {
     try {
-        const courses = await Courses.find();
+        const courses = await Courses.find().sort({ number: 1 });
         return res.status(200).json(courses);
     } catch (err) {
         return res.status(500).json(err);
