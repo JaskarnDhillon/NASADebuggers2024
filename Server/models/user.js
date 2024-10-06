@@ -15,7 +15,8 @@ const userSchema = new Schema({
       id: String,
       modules: [{
         id: String,
-        completed: Boolean
+        completed: Boolean,
+        isAvaialble: Boolean
       }]
     }]
   }
