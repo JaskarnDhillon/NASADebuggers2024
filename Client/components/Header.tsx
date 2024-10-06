@@ -49,15 +49,18 @@ const Header = () => {
 
         <div className="w-[500px] h-full hidden lg:flex flex-row items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto px-[20px] py-[10px] rounded-full text-gray-200">
+          <div className="flex items-center justify-between w-full h-auto px-[20px] py-[10px] rounded-full text-gray-200">
             <Link href="/about" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
               About Us
             </Link>
             <Link href="#subjects" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
+            <Link href="#subjects" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
               Subjects
             </Link>
-            <Link href="/dashboard/courses" className="ursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
-              Courses
+            <Link href="/dashboard" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
+              My Progress
             </Link>
+            <Link href="/contact" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
             <Link href="/contact" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
               Contact Us
             </Link>
