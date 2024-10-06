@@ -5,14 +5,14 @@ import { useRouter } from 'next/navigation';
 import HeaderBox from '../../components/HeaderBox';
 
 const Courses = () => {
-  const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [isLaunching, setIsLaunching] = useState<boolean>(false);
   const [courses, setCourses] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
 
-  const handleCourseClick = (courseId: number) => {
-    setSelectedCourse(courseId);
+  const handleCourseClick = (courseName: string) => {
+    setSelectedCourse(courseName);
   };
 
   const handleBlastOffClick = () => {
@@ -74,9 +74,9 @@ const Courses = () => {
             <button
               key={course._id}
               className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition-all duration-300 ${
-                selectedCourse === course._id ? 'selected-course' : 'hover-course'
+                selectedCourse === course.name ? 'selected-course' : 'hover-course'
               } ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`}
-              onClick={() => handleCourseClick(course._id)}
+              onClick={() => handleCourseClick(course.name)}
               disabled={!course.enabled}
             >
               <h2 className="text-2xl">
