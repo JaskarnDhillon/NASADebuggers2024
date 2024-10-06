@@ -28,6 +28,8 @@ module.exports = function (app) {
 
   app.get('/api/v1/modules/:_id', Modules.getModulesById);
 
+  app.get('/api/v1/modules/xyz/:_id', Modules.getModulesByCourse);
+
   app.get('/api/v1/quizzes', Quizzes.get);
 
   app.get('/api/v1/quizzes/:_id', Quizzes.getQuizById);
