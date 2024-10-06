@@ -20,11 +20,13 @@ import Calender from '../../../components/Calender';
 interface Module {
   _id: string;
   name: string;
-  components: string[];
+  components: number[];
   orderNumber: number;
   course: string;
   quiz: string;
 }
+
+const ComponentArray = [<Calender />, <HeaderBox title='hlp' />];
 
 const ModuleDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Get the module ID from the route parameters
@@ -61,8 +63,7 @@ const ModuleDetailPage: React.FC = () => {
         <p className=' text-white'>Order: {module.orderNumber}</p>
         {module.components.map((component, index) => (
             <div key={index}>
-                {component === 'Calendar' ? <Calender /> : <div className=' text-white'></div>}
-                {component === 'HeaderBox' ? <HeaderBox title="HelloWorld" /> : <div className=' text-white'></div>}
+                {ComponentArray[component]}
             </div>
         ))}
         <p className=' text-white'>Course: {module.course}</p>
