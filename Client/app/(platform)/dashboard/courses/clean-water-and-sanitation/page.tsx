@@ -30,7 +30,7 @@ const CleanWaterSanitation = () => {
         <li>Applications and Benefits</li>
         <li>Quiz 4</li>
       </ul>
-
+    
       <button 
         className="mt-4 py-2 px-6 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-500 transition duration-300" 
         onClick={handleBeginClick}

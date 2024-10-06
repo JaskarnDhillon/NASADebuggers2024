@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation'; // Import useParams to extract params from URL
+import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 interface Quiz {
@@ -72,19 +72,17 @@ const QuizPage = () => {
   }
 
   return (
-    <div className="quiz-container bg-gray-900 min-h-screen text-white p-6 flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-4 text-blue-400 animate-bounce">{quiz.name}</h1>
-      <p className="text-lg mb-6 text-gray-400">{quiz.description}</p>
+    <div className="quiz-container">
+      <h1 className="text-5xl font-extrabold mb-4 text-white">{quiz.name}</h1>
+      <p className="text-lg mb-6 text-white-200">{quiz.description}</p>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-2xl bg-gray-800 rounded-lg shadow-lg p-6 space-y-6"
+        className="w-full max-w-2xl p-6 space-y-6"
       >
         {quiz.questions.map((question, questionIndex) => (
-          <div key={questionIndex} className="question bg-gray-700 p-4 rounded-md">
-            <h3 className="text-2xl font-semibold mb-4 text-yellow-300">
-              {question.question}
-            </h3>
+          <div key={questionIndex} className="question">
+            <h3 className="text-2xl font-semibold mb-4 text-white">{question.question}</h3>
             <div className="space-y-2">
               {question.options.map((option, optionIndex) => (
                 <div key={optionIndex} className="flex items-center space-x-3">
@@ -98,7 +96,7 @@ const QuizPage = () => {
                   />
                   <label
                     htmlFor={`q${questionIndex}_o${optionIndex}`}
-                    className="text-gray-300 hover:text-white transition"
+                    className="text-white hover:text-blue-200 transition"
                   >
                     {option.option}
                   </label>
@@ -110,7 +108,7 @@ const QuizPage = () => {
 
         <button
           type="submit"
-          className="w-full py-3 px-6 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transition transform duration-200 hover:bg-gradient-to-l"
+          className="w-full py-3 px-6 text-white font-bold rounded-lg shadow-lg hover:scale-105 transition transform duration-200"
         >
           Submit Quiz
         </button>
@@ -127,6 +125,67 @@ const QuizPage = () => {
           {result}
         </p>
       )}
+      
+      <div className="wave"></div>
+
+      <style jsx>{`
+        .quiz-container {
+          background: url('/wave-image.jpg') no-repeat center center fixed; /* Replace with your wave image */
+          background-size: cover;
+          min-height: 100vh;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .wave {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100px;
+          background: url('/path/to/wave.svg') no-repeat center bottom; /* Add your wave SVG */
+          background-size: cover;
+          animation: wave 10s infinite linear;
+        }
+
+        @keyframes wave {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        h1, h3 {
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .question {
+          background: linear-gradient(to bottom right, rgba(173, 216, 230, 0.6), rgba(135, 206, 250, 0.6));
+          border-radius: 10px;
+          padding: 20px;
+          backdrop-filter: blur(5px);
+        }
+
+        input[type="radio"] {
+          accent-color: #0099cc; /* Modern browsers */
+        }
+
+        button {
+          background: linear-gradient(to right, #4db8ff, #0066cc);
+          box-shadow: 0 4px 15px rgba(0, 100, 200, 0.5);
+        }
+
+        .result-message {
+          animation: fadeIn 1s;
+        }
+      `}</style>
     </div>
   );
 };
