@@ -11,6 +11,11 @@ let quizSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    module: {
+        type: Schema.Types.ObjectId,
+        ref: 'Module',
+        required: true
+    },
     questions: [{
         question: String,
         options: [{
