@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import StarsCanvas from "@/components/StarCanvas";
 
@@ -13,6 +14,7 @@ export default function RootLayout({
                 <Header />
                 
           {children}
+          <Footer/>
       </main>
     );
   }
