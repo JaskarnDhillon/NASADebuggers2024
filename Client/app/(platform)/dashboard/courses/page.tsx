@@ -7,6 +7,7 @@ import HeaderBox from '../../components/HeaderBox';
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [isLaunching, setIsLaunching] = useState<boolean>(false);
+  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
   const [courses, setCourses] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
@@ -19,9 +20,12 @@ const Courses = () => {
     if (selectedCourse) {
       setIsLaunching(true);
       setTimeout(() => {
-        setIsLaunching(false);
+        setIsFadingOut(true); // Start fade out effect
+      }, 2000); // Delay for the launch animation
+
+      setTimeout(() => {
         router.push(`/dashboard/courses/${selectedCourse}`);
-      }, 2000);
+      }, 2500); // Redirect after fading out (2000ms launch + 500ms fade)
     }
   };
 
@@ -66,16 +70,14 @@ const Courses = () => {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center flex-grow relative overflow-hidden">
+    <div className={`bg-black text-white min-h-screen flex flex-col items-center justify-center flex-grow relative overflow-hidden ${isFadingOut ? 'fade-out' : ''}`}>
       <HeaderBox title="Dashboard" />
       <div className="grid grid-cols-3 gap-6 mt-5 z-10 justify-center">
         {courses.length > 0 ? (
           courses.map((course) => (
             <button
               key={course._id}
-              className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition-all duration-300 ${
-                selectedCourse === course.name ? 'selected-course' : 'hover-course'
-              } ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`}
+              className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition-all duration-300 ${selectedCourse === course.name ? 'selected-course' : 'hover-course'} ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`}
               onClick={() => handleCourseClick(course.name)}
               disabled={!course.enabled}
             >
@@ -95,9 +97,7 @@ const Courses = () => {
 
       {selectedCourse && (
         <button
-          className={`fixed bottom-4 py-3 px-6 rounded-lg text-white z-10 transition-transform duration-300 ${
-            isLaunching ? 'animate-blastoff' : ''
-          } fire-button`}
+          className={`fixed bottom-4 py-3 px-6 rounded-lg text-white z-10 transition-transform duration-300 ${isLaunching ? 'animate-blastoff' : ''} fire-button`}
           onClick={handleBlastOffClick}
         >
           Blast Off
@@ -177,7 +177,11 @@ const Courses = () => {
           animation: blastoff 0.3s ease-in-out forwards;
         }
 
-        /* Space-themed course button hover */
+        .fade-out {
+          opacity: 0;
+          transition: opacity 0.5s ease-out;
+        }
+
         .hover-course {
           background: linear-gradient(135deg, rgba(9, 33, 68, 0.8), rgba(28, 181, 224, 0.8));
           border: 2px solid rgba(28, 181, 224, 0.7);
