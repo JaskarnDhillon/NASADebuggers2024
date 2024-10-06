@@ -1,19 +1,18 @@
-"use client"; // Ensure this is the very first line
+"use client";
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
+import { useRouter } from 'next/navigation';
 import HeaderBox from '../../components/HeaderBox';
 
-
 const Courses = () => {
-  const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [isLaunching, setIsLaunching] = useState<boolean>(false);
-  const [courses, setCourses] = useState<any[]>([]); // State for storing courses
-  const [loading, setLoading] = useState<boolean>(true); // State for loading
-  const router = useRouter(); // Initialize the router
+  const [courses, setCourses] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
 
-  const handleCourseClick = (courseId: number) => {
-    setSelectedCourse(courseId);
+  const handleCourseClick = (courseName: string) => {
+    setSelectedCourse(courseName);
   };
 
   const handleBlastOffClick = () => {
@@ -21,18 +20,16 @@ const Courses = () => {
       setIsLaunching(true);
       setTimeout(() => {
         setIsLaunching(false);
-        router.push(`/dashboard/courses/${selectedCourse}`); // Redirect after animation
-      }, 2000); // Adjusted duration to match the animation duration
+        router.push(`/dashboard/courses/${selectedCourse}`);
+      }, 2000);
     }
   };
 
-  // Fetch courses from backend API
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/courses'); // Replace with your backend API URL
+        const response = await fetch('http://localhost:4000/api/v1/courses');
         const data = await response.json();
-        console.log('Courses:', data);
         setCourses(data);
         setLoading(false);
       } catch (error) {
@@ -42,10 +39,9 @@ const Courses = () => {
     };
 
     fetchCourses();
-    createBackgroundStars(); // Call function to create background stars
+    createBackgroundStars();
   }, []);
 
-  // Function to create and place stars randomly for background
   const createBackgroundStars = () => {
     const totalStars = 200;
 
@@ -53,14 +49,12 @@ const Courses = () => {
       let star = document.createElement('div');
       star.classList.add('backgroundStar');
 
-      // Randomize position
       let x = Math.random() * window.innerWidth - 20;
       let y = Math.random() * window.innerHeight - 20;
 
       star.style.left = x + 'px';
       star.style.top = y + 'px';
 
-      // Randomize animation delay for twinkling effect
       star.style.animationDelay = Math.random() * 5 + 's';
 
       document.body.appendChild(star);
@@ -68,60 +62,54 @@ const Courses = () => {
   };
 
   if (loading) {
-    return <div className="text-white">Loading courses...</div>; // Display a loading message while fetching
+    return <div className="text-white">Loading courses...</div>;
   }
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center flex-grow relative overflow-hidden">
-    <HeaderBox title="Dashboard"/>
-    <div className="grid grid-cols-3 mt-5 space-x-4 z-10 justify-center">
-      {courses.length > 0 ? (
-        courses.map((course) => (
-          <button
-            key={course._id} // Unique key for each button
-            className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition duration-300 ${
-              selectedCourse === course._id ? 'bg-blue-600' : 'bg-gray-800'
-            } hover:bg-blue-500 ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`} // Apply styles if disabled
-            onClick={() => handleCourseClick(course._id)}
-            disabled={!course.enabled} // Disable button if course.enabled is false
-          >
-            <h2 className="text-2xl">
-              {
-                course.name.split('-') // Split the string at each "-"
-                .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-                .join(' ') // Join the words back together with a space
-              }
-            </h2>
-            <p className="text-gray-400">{course.description}</p>
-          </button>
-        ))
-      ) : (
-        <p>No courses available</p>
-      )}
-    </div>
+      <HeaderBox title="Dashboard" />
+      <div className="grid grid-cols-3 gap-6 mt-5 z-10 justify-center">
+        {courses.length > 0 ? (
+          courses.map((course) => (
+            <button
+              key={course._id}
+              className={`w-[300px] flex flex-col items-center justify-center py-4 px-6 rounded-lg border-2 transition-all duration-300 ${
+                selectedCourse === course.name ? 'selected-course' : 'hover-course'
+              } ${!course.enabled ? 'cursor-not-allowed opacity-50' : ''}`}
+              onClick={() => handleCourseClick(course.name)}
+              disabled={!course.enabled}
+            >
+              <h2 className="text-2xl">
+                {course.name
+                  .split('-')
+                  .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </h2>
+              <p className="text-gray-400">{course.description}</p>
+            </button>
+          ))
+        ) : (
+          <p>No courses available</p>
+        )}
+      </div>
 
-      {/* Conditionally render the Blast Off button */}
       {selectedCourse && (
         <button
-          className={`mt-10 py-3 px-6 rounded-lg text-white z-10 transition-transform duration-300 ${isLaunching ? 'animate-blastoff' : ''} fire-button`}
+          className={`fixed bottom-4 py-3 px-6 rounded-lg text-white z-10 transition-transform duration-300 ${
+            isLaunching ? 'animate-blastoff' : ''
+          } fire-button`}
           onClick={handleBlastOffClick}
         >
           Blast Off
         </button>
       )}
 
-      {/* Ship Animation */}
       {isLaunching && (
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <img
-            src="/ship.png"
-            alt="Ship"
-            className="animate-launch ship-image" // Custom class for the ship
-          />
+        <div className="absolute left-1/2 transform -translate-x-1/2 z-50">
+          <img src="/ship.png" alt="Ship" className="animate-launch ship-image" />
         </div>
       )}
 
-      {/* CSS for the stars and ship animation */}
       <style jsx global>{`
         .backgroundStar {
           position: absolute;
@@ -147,20 +135,20 @@ const Courses = () => {
 
         @keyframes launch {
           0% {
-            transform: translateY(100vh); /* Start off-screen at the bottom */
+            transform: translateY(100vh);
           }
           100% {
-            transform: translateY(-150vh); /* Move the ship off the screen */
+            transform: translateY(-150vh);
           }
         }
 
         .animate-launch {
-          animation: launch 4s forwards; /* Match the duration to the timeout */
+          animation: launch 4s forwards;
         }
 
         .ship-image {
-          width: 100px; /* Adjusted ship size */
-          height: auto; /* Maintain aspect ratio */
+          width: 100px;
+          height: auto;
         }
 
         .fire-button {
@@ -178,15 +166,52 @@ const Courses = () => {
             transform: scale(1);
           }
           50% {
-            transform: scale(1.1); /* Slightly increase size */
+            transform: scale(1.1);
           }
           100% {
-            transform: scale(1); /* Return to normal size */
+            transform: scale(1);
           }
         }
 
         .animate-blastoff {
           animation: blastoff 0.3s ease-in-out forwards;
+        }
+
+        /* Space-themed course button hover */
+        .hover-course {
+          background: linear-gradient(135deg, rgba(9, 33, 68, 0.8), rgba(28, 181, 224, 0.8));
+          border: 2px solid rgba(28, 181, 224, 0.7);
+          box-shadow: 0 0 10px rgba(28, 181, 224, 0.7), 0 0 15px rgba(9, 33, 68, 0.9);
+          color: white;
+        }
+
+        .hover-course:hover {
+          background: linear-gradient(135deg, rgba(28, 181, 224, 1), rgba(9, 33, 68, 1));
+          transform: scale(1.05);
+          box-shadow: 0 0 20px rgba(28, 181, 224, 0.9), 0 0 30px rgba(9, 33, 68, 1);
+        }
+
+        /* Space-themed selected course */
+        .selected-course {
+          background: linear-gradient(135deg, rgba(255, 165, 0, 1), rgba(255, 69, 0, 1));
+          border: 2px solid rgba(255, 165, 0, 0.7);
+          box-shadow: 0 0 15px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 69, 0, 1);
+          animation: pulse-selected 2s infinite;
+        }
+
+        @keyframes pulse-selected {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 69, 0, 1);
+          }
+          50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 165, 0, 1), 0 0 40px rgba(255, 69, 0, 1);
+          }
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 69, 0, 1);
+          }
         }
       `}</style>
     </div>
