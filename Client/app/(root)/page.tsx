@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { learningStats } from "@/constants";
 
 export default function Home() {
   useEffect(() => {
@@ -107,17 +108,80 @@ export default function Home() {
           className="parallax_img absolute"
         />
       </div>
+      <div className="bg-[#21949a] w-full relative pt-32 pb-[400px] whyus_before">
+        <div className="flex  items-center w-full lg:w-[1280px] mx-auto justify-center ">
+        <div className="flex-1">
+          <Image src="/whyus.png" alt="" width={500} height={500} className="w-[600px] object-cover"/>
+        </div>
+        <div className="flex-1">
+          <h2 className="capitalize text-[60px] font-bold">We provide <br/><Link href="/" className=" text-[55px] px-7 border-2 border-black rounded-full bold bg-[#30abb1]">smart</Link>  online<br/> education</h2>
+          <p className="text-gray-800 text-lg">
+            Empowering students with flexible, interactive learning resources that inspire growth, knowledge, and success in every field.
+          </p>
+        </div>
+        </div>
+       
+      </div>
+      <div className="bg-[#fff] w-full relative py-32">
+        <div className="flex w-full lg:w-[1280px] mx-auto justify-center items-center">
+          <div className="text-left">
+            <h2 className="capitalize text-[60px] font-bold">It's easy to start <br/> 
+              <Link href="/" className="text-[55px] px-7 border-2 border-black rounded-full medium bg-[#30abb1]">learning</Link> 
+            </h2>
+            <p className="text-gray-500 text-lg pt-10 w-[75%]">
+              Unlock unlimited learning opportunities with just a few clicks. Start your journey today and grow your skills effortlessly.
+            </p>
+            <ul className=" flex flex-col gap-2 pt-5">
+            {learningStats.map((item)=>(
+              <div className="flex gap-2 items-center">
+                  <div className="bg-[#21949a] flex justify-center items-center p-2 rounded-full">
+                    <Image src="/check.svg" alt="" width={18} height={18} className=" object-cover"/>
+                  </div>
+                  <p className="text-[18px]">{item.title}</p>
+              </div>
+            ))}
+            </ul>
+          </div>
 
-      <div className="bg-[#075470] relative p-28">
-        <h2>Lorem, ipsum.</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptatibus voluptatum eos, totam minima officiis aliquid facilis.
-          Culpa, saepe? Architecto, et sapiente repellendus maxime ea delectus
-          explicabo fugit, libero veritatis nemo quam nam assumenda incidunt?
-          Ipsum voluptatibus id facilis, asperiores expedita dolor vero fugit
-          maxime? Enim earum a numquam voluptatibus?
-        </p>
+          <div className="flex justify-center items-center">
+            <Image src="/start.png" alt="" width={500} height={500} className="w-[600px] object-cover"/>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#fff] w-full relative py-32">
+        <div className="flex w-full lg:w-[1280px] mx-auto justify-center items-center">
+          <div className="flex justify-center items-center flex-1">
+            <Image src="/teach.svg" alt="" width={500} height={500} className="w-[1000px] object-cover"/>
+          </div>
+          <div className="text-left flex-1">
+          <h2 className="capitalize text-[60px] font-bold">What is a <br/> 
+              <Link href="/" className="text-[55px] px-7 border-2 border-black rounded-full medium bg-[#30abb1]">SDG</Link>?
+            </h2>
+            <p className="text-gray-800 text-lg pt-10 w-[75%]">
+              A Sustainable Development Goal (SDG) is a global objective set by the United Nations to address pressing challenges such as poverty, inequality, climate change, and more, aiming for a better and sustainable future for all.
+            </p>
+
+          </div>
+
+          
+        </div>
+      </div>
+      <div className="bg-white py-32">
+        <div className="bg-[#21949a] w-full flex lg:w-[1280px] mx-auto justify-center items-center pt-5 px-10  rounded-[18px]">
+          <div className="flex-1">
+            <Image src="/teach.svg" alt="" width={500} height={500} className="w-[500px] object-cover"/>
+          </div>
+          <div className="flex-1">
+              <h2 className="text-[50px] font-bold">Get Started Right Now!</h2>
+              <p className="text-lg text-gray-800 mt-4">
+                Get a taste of what it feels like to learn on a platform designed to help you achieve your goals. Discover new skills and transform your learning experience today!
+              </p>
+              <div className="mt-10">
+                <Link href="/" className=" py-4 px-9 rounded-full border-2 border-transparent duration-200 transition-all ease-linear hover:bg-[#fff] hover:border-black bg-[#30abb1]">Get Started</Link>
+              </div>
+            </div>
+
+        </div>
       </div>
     </main>
   );
