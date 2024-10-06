@@ -29,10 +29,12 @@ const Courses = () => {
     }
   };
 
+  const apiURL = process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : process.env.DEV_SERVER_URL;
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/courses');
+        const response = await fetch(apiURL + '/api/v1/courses');
         const data = await response.json();
         setCourses(data);
         setLoading(false);
