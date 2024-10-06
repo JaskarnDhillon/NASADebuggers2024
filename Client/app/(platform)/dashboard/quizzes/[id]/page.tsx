@@ -22,10 +22,12 @@ const QuizPage = () => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<string | null>(null);
 
+  const apiURL = process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : process.env.DEV_SERVER_URL;
+
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/quizzes/${id}`);
+        const response = await fetch(apiURL + `/api/v1/quizzes/${id}`);
         const quizData = await response.json();
         if (quizData && quizData.questions) {
           setQuiz(quizData);
