@@ -55,7 +55,7 @@ const Header = () => {
             <Link href="#subjects" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
               Subjects
             </Link>
-            <Link href="/dashboard/courses" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
+            <Link href="/dashboard/courses" className="ursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
               Courses
             </Link>
             <Link href="/contact" className="cursor-pointer duration-300 transition-all ease-in text-[#094b65] hover:bg-[#094b65] hover:text-[#fff] py-1 px-4 rounded-full">
