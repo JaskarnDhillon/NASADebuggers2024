@@ -44,7 +44,7 @@ const ModuleDetailPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const apiURL = process.env.NODE_ENV === 'production' ? process.env.PROD_SERVER_URL : process.env.DEV_SERVER_URL;
+  const apiURL = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PROD_SERVER_URL : process.env.NEXT_PUBLIC_DEV_SERVER_URL;
 
   useEffect(() => {
     const fetchModule = async () => {
