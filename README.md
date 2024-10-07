@@ -81,4 +81,4 @@ Understanding and engaging with the SDGs is essential for shaping a sustainable 
 **Visit the official website:** [SDG Innovation Lab](www.sdg-innovation-lab.com)
 
 ### 8. References
-- United Nations. (n.d.). United Nations Sustainable Development Goals. Retrieved from [UN SDGs](https://sdgs.un.org/)
+- United Nations. (n.d.). United Nations Sustainable Development Goals. Retrieved from [UN SDGs](https://sdgs.un.org/).
