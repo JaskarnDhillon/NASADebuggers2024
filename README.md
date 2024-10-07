@@ -46,7 +46,7 @@ The Debuggers development team consists of passionate individuals from diverse b
 - **Jaskarn Dhillon:** CTO
 - **Beni Noje:** CPO
 - **Kalem Sdao:** CMO
-- **Michael Rosanelli:** CTO
+- **Michael Rosanelli:** CFO
 - **Jackson Douma:** CIO
 
 ### 4. Project Overview
