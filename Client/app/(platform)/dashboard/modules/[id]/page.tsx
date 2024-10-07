@@ -3,7 +3,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
-import HeaderBox from '../../../components/HeaderBox';
+import M1C1 from '../../../components/m1c1';
+import M1C2 from '../../../components/m1c2';
+import M1C3 from '../../../components/m1c3';
+import M1C4 from '../../../components/m1c4';
+import M1C5 from '../../../components/m1c5';
+import M1C6 from '../../../components/m1c6';
+import M1C7 from '../../../components/m1c7';
+import M1C8 from '../../../components/m1c8';
+import M3P1 from '../../../components/M3P1'
+import M3P2 from '../../../components/M3P2'
+
 import Calender from '../../../components/Calender';
 
 // Define types for your Module, Course, and Quiz models
@@ -26,7 +36,7 @@ interface Module {
   quiz: string;
 }
 
-const ComponentArray = [<Calender />, <HeaderBox title='hlp' />];
+const ComponentArray = [<M1C1 />, <M1C2 />, <M1C3 />, <M1C4 />, <M1C5 />, <M1C6 />, <M1C7 />, <M1C8 />, <M3P1 />, <M3P2 />];
 
 const ModuleDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Get the module ID from the route parameters
